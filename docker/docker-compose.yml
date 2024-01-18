@@ -1,0 +1,28 @@
+services:
+  node1:
+    image: dyme
+    networks:
+      static-network:
+        ipv4_address: 172.20.128.2
+    ports:
+      - "26656-26657:26656-26657"
+      - "1317:1317"
+    working_dir: /cosmos_app
+    command: sh ./setup.sh node1 172.20.128.2
+
+  node2:
+    image: dyme
+    networks:
+      static-network:
+        ipv4_address: 172.20.128.3
+    ports:
+      - "26659-26660:26656-26657"
+      - "1318:1317"
+    working_dir: /cosmos_app
+    command: sh ./setup.sh node2 172.20.128.3
+  
+networks:
+  static-network:
+    ipam:
+      config:
+        - subnet: 172.20.0.0/16

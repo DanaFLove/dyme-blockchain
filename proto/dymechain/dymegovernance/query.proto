@@ -1,0 +1,57 @@
+syntax = "proto3";
+package dymechain.dymegovernance;
+
+import "gogoproto/gogo.proto";
+import "google/api/annotations.proto";
+import "cosmos/base/query/v1beta1/pagination.proto";
+import "dymechain/dymegovernance/params.proto";
+// this line is used by starport scaffolding # 1
+
+option go_package = "dymechain/x/dymegovernance/types";
+
+// Query defines the gRPC querier service.
+service Query {
+  // Parameters queries the parameters of the module.
+  rpc Params(QueryParamsRequest) returns (QueryParamsResponse) {
+    option (google.api.http).get = "/dymechain/dymegovernance/params";
+  }
+  // Queries a list of GetKeyValue items.
+	rpc GetKeyValue(QueryGetKeyValueRequest) returns (QueryGetKeyValueResponse) {
+		option (google.api.http).get = "/dymechain/dymegovernance/get_key_value/{key}";
+	}
+
+// Queries a list of GetAdvisors items.
+	rpc GetAdvisors(QueryGetAdvisorsRequest) returns (QueryGetAdvisorsResponse) {
+		option (google.api.http).get = "/dymechain/dymegovernance/get_advisors/{advisorparam1}/{advisorparam2}";
+	}
+
+// this line is used by starport scaffolding # 2
+}
+
+// QueryParamsRequest is request type for the Query/Params RPC method.
+message QueryParamsRequest {}
+
+// QueryParamsResponse is response type for the Query/Params RPC method.
+message QueryParamsResponse {
+  // params holds all the parameters of this module.
+  Params params = 1 [(gogoproto.nullable) = false];
+}
+
+message QueryGetKeyValueRequest {
+  string key = 1;
+}
+
+message QueryGetKeyValueResponse {
+  string value = 1;
+}
+
+message QueryGetAdvisorsRequest {
+  string advisorparam1 = 1;
+  string advisorparam2 = 2;
+}
+
+message QueryGetAdvisorsResponse {
+  string advisordata = 1;
+}
+
+// this line is used by starport scaffolding # 3
