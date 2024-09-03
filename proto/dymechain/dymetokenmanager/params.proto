@@ -1,0 +1,12 @@
+syntax = "proto3";
+package dymechain.dymetokenmanager;
+
+import "gogoproto/gogo.proto";
+
+option go_package = "dymechain/x/dymetokenmanager/types";
+
+// Params defines the parameters for the module.
+message Params {
+  option (gogoproto.goproto_stringer) = false;
+  
+}

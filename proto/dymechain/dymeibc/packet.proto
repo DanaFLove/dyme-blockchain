@@ -1,0 +1,29 @@
+syntax = "proto3";
+package dymechain.dymeibc;
+
+// this line is used by starport scaffolding # proto/packet/import
+
+option go_package = "dymechain/x/dymeibc/types";
+
+message DymeibcPacketData {
+    oneof packet {
+        NoData noData = 1;
+        // this line is used by starport scaffolding # ibc/packet/proto/field
+				IbcSwapMintPacketData ibcSwapMintPacket = 2; // this line is used by starport scaffolding # ibc/packet/proto/field/number
+    }
+}
+
+message NoData {
+}
+
+// IbcSwapMintPacketData defines a struct for the packet payload
+message IbcSwapMintPacketData {
+  string tokenAmount = 1;
+  string targetChainWalletId = 2;
+}
+
+// IbcSwapMintPacketAck defines a struct for the packet acknowledgment
+message IbcSwapMintPacketAck {
+	  string txID = 1;
+}
+// this line is used by starport scaffolding # ibc/packet/proto/message

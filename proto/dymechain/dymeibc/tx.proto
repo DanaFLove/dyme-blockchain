@@ -1,0 +1,25 @@
+syntax = "proto3";
+package dymechain.dymeibc;
+
+// this line is used by starport scaffolding # proto/tx/import
+
+option go_package = "dymechain/x/dymeibc/types";
+
+// Msg defines the Msg service.
+service Msg {
+      rpc SendIbcSwapMint(MsgSendIbcSwapMint) returns (MsgSendIbcSwapMintResponse);
+// this line is used by starport scaffolding # proto/tx/rpc
+}
+
+message MsgSendIbcSwapMint {
+  string creator = 1;
+  string port = 2;
+  string channelID = 3;
+  uint64 timeoutTimestamp = 4;
+  string tokenAmount = 5;
+  string targetChainWalletId = 6;
+}
+
+message MsgSendIbcSwapMintResponse {
+}
+// this line is used by starport scaffolding # proto/tx/message
