@@ -1,0 +1,4 @@
+FROM ubuntu:22.04
+
+ADD dymechaind /cosmos_app/
+COPY ./*.sh /cosmos_app/

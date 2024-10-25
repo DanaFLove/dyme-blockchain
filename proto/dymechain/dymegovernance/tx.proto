@@ -1,0 +1,49 @@
+syntax = "proto3";
+package dymechain.dymegovernance;
+
+// this line is used by starport scaffolding # proto/tx/import
+
+option go_package = "dymechain/x/dymegovernance/types";
+
+// Msg defines the Msg service.
+service Msg {
+      rpc SetKeyValue(MsgSetKeyValue) returns (MsgSetKeyValueResponse);
+  rpc Stakedyme(MsgStakedyme) returns (MsgStakedymeResponse);
+  rpc ElectAdvisor(MsgElectAdvisor) returns (MsgElectAdvisorResponse);
+  rpc AdviceOnProposal(MsgAdviceOnProposal) returns (MsgAdviceOnProposalResponse);
+// this line is used by starport scaffolding # proto/tx/rpc
+}
+
+message MsgSetKeyValue {
+  string creator = 1;
+  string key = 2;
+  string value = 3;
+}
+
+message MsgSetKeyValueResponse {
+}
+
+message MsgStakedyme {
+  string creator = 1;
+}
+
+message MsgStakedymeResponse {
+}
+
+message MsgElectAdvisor {
+  string creator = 1;
+}
+
+message MsgElectAdvisorResponse {
+}
+
+message MsgAdviceOnProposal {
+  string creator = 1;
+  string proposalId = 2;
+  string advisoryOutcome = 3;
+}
+
+message MsgAdviceOnProposalResponse {
+}
+
+// this line is used by starport scaffolding # proto/tx/message
